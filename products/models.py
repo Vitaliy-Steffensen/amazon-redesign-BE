@@ -19,7 +19,7 @@ def upload_to(instance, filename):
 
 class ProductCategory(models.Model):
     title = models.CharField(max_length=100)
-    image = models.ImageField(_("Image"), upload_to=upload_to, default='products-images/default.jpg')
+    image = models.ImageField(_("Image"), upload_to=upload_to, default='products-images/default.jpg', max_length=500)
 
     def __str__(self):
         return self.title
@@ -29,7 +29,7 @@ class Product(models.Model):
     title = models.CharField(max_length=100)
     price = models.FloatField()
     rating = models.IntegerField(default=Ratings.HIGH, choices=Ratings.choices)
-    thumbnail = models.ImageField(_("Image"), upload_to=upload_to, default='products-images/default.jpg')
+    thumbnail = models.ImageField(_("Image"), upload_to=upload_to, default='products-images/default.jpg', max_length=500)
     category = models.ForeignKey(
         ProductCategory,
         on_delete=models.CASCADE, default=None,  related_name='category'
@@ -46,7 +46,7 @@ class ProductImage(models.Model):
     product = models.ForeignKey(         
         Product,
         on_delete=models.CASCADE, default=None,  related_name='images')
-    image = models.ImageField(_("Image"), upload_to=upload_to, default='products-images/default.jpg')
+    image = models.ImageField(_("Image"), upload_to=upload_to, default='products-images/default.jpg', max_length=500)
 
 class ProductFeature(models.Model):
     product = models.ForeignKey(         

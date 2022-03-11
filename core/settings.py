@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
+import cloudinary_storage
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -38,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cloudinary',
     'rest_framework',
     'rest_framework.authtoken',
     'corsheaders',
@@ -140,10 +142,15 @@ USE_I18N = True
 USE_TZ = True
 
 
+
+
+
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/ 
 
-STATIC_URL = '/static/'
+
 
 # STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
 
@@ -153,17 +160,23 @@ STATIC_URL = '/static/'
 
 #STATIC_ROOT = "/home/cfedeploy/webapps/cfehome_static_root/" 
 
-MEDIA_URL = '/media/'
 
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'live-static','media-root')
 
 
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
-
+STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'medida')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'duonjjv62',
+    'API_KEY': '455288919941847',
+    'API_SECRET': 'rGaLO2pP7WCqMcUd7-Ilnav9J-Q'
+}
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 
 import os

@@ -190,3 +190,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Configure Django App for Heroku.
 import django_heroku
 django_heroku.settings(locals())
+
+
+STRIPE_PUBLIC_KEY = "pk_test_51HjOcIJXstuyXCSKOXYEGg0rDTCSYN8XtiQU0O3PEeBUlGHN6B01Hq9YcBL9SbzMSXAs6KGTcsFN3jNmO4XIO8hU00meVObCMF"
+STRIPE_SECRET_KEY = "sk_test_51HjOcIJXstuyXCSKfrTzK8yloraKn2uhbPRfaY4b0V0gVRScXuQZgMT4NjViv8CDVUxthCzfv1Qr4b5t6crvRtpK00e0vLEWKC"
+STRIPE_WEBHOOK_SECRET = ""
